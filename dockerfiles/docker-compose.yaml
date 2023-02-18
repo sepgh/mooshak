@@ -1,5 +1,6 @@
 version: '3'
 
+name: 'mooshak:1.0'
 services:
   mooshak:
     build:
