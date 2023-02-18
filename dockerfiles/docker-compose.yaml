@@ -7,5 +7,12 @@ services:
       network: host
     ports:
       - 2255:22
-
+  wstunnel:
+    build:
+      context: ./wstunnel
+      network: host
+    ports:
+      - 3344:80
+    depends_on:
+      - mooshak
 
