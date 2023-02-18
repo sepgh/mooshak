@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mooshak:
+    build:
+      context: ./mooshak
+      network: host
+    ports:
+      - 2255:22
+
+
