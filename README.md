@@ -20,7 +20,7 @@ Mooshak project also provides information (and source codes) for clients to be u
 
 - [X] SSH Server
 - [x] WS Tunnel
-- [ ] Restrict command access of SSH Server
+- [ ] Restricted shell for ssh clients
 - [ ] Server setup documentation
 - [ ] UDP Support
 - [ ] Linux clients
