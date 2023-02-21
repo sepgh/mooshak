@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'Mooshak'
 enableGitInfo = true
 disableKinds = ['taxonomy', 'taxonomyTerm']
+relativeURLs = true
+canonifyURLs = true
 
 [module]
 [[module.imports]]
