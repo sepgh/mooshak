@@ -1,6 +1,6 @@
 baseURL = 'https://sepgh.github.io/mooshak/'
 languageCode = 'en-us'
-title = 'MOOSHAK | Lightway and Easy to setup SSH Tunnel proxy'
+title = 'Mooshak'
 enableGitInfo = true
 disableKinds = ['taxonomy', 'taxonomyTerm']
 
