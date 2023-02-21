@@ -1,6 +1,6 @@
 {
-  "name": "MOOSHAK | Lightway and Easy to setup SSH Tunnel proxy",
-  "short_name": "MOOSHAK | Lightway and Easy to setup SSH Tunnel proxy",
+  "name": "Mooshak",
+  "short_name": "Mooshak",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
