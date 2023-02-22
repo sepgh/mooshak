@@ -6,7 +6,7 @@ EXPOSE 22
 COPY files/entrypoint.sh /
 COPY files/adduser.sh /
 COPY files/deleteuser.sh /
-COPY files/sshd_config /etc/sshd/sshd_config
+COPY files/sshd_config /etc/ssh/sshd_config
 COPY files/banner /etc/motd
 ENTRYPOINT ["/entrypoint.sh"]
 
