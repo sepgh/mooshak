@@ -16,6 +16,10 @@ The purpose of this repository is to provide tools to setup `lightweight` and `e
 Mooshak project also provides information (and source codes) for clients to be used for these connections.
 
 ---
+### Documentation
+
+Full documentation is available under https://sepgh.github.io/mooshak/
+
 ### Todo
 
 - [X] SSH Server
