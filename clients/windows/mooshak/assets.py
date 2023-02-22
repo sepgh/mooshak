@@ -25,7 +25,7 @@ def download(url: str):
 
 assets = [
     {
-        "name": "dns2socks.exe",
+        "name": "DNS2SOCKS.exe",
         "url": "https://altushost-swe.dl.sourceforge.net/project/dns2socks/DNS2SOCKS.exe",
         "handler": lambda asset: download(asset["url"])
     },
