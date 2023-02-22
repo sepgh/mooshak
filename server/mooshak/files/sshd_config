@@ -83,7 +83,7 @@ PasswordAuthentication yes
 # Feel free to re-enable these if your use case requires them.
 AllowTcpForwarding yes
 GatewayPorts yes
-X11Forwarding no
+X11Forwarding yes
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
@@ -97,7 +97,7 @@ TCPKeepAlive yes
 #UseDNS no
 #PidFile /run/sshd.pid
 #MaxStartups 10:30:100
-#PermitTunnel no
+PermitTunnel yes
 #ChrootDirectory none
 #VersionAddendum none
 
