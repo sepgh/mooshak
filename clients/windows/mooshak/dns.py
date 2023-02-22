@@ -4,7 +4,7 @@ import os
 
 class DNS2Socks:
 
-    def __init__(self, port: int, dns_server: str = "8.8.8.8", dns_server_port: int = 53):
+    def __init__(self, port: int, dns_server: str, dns_server_port: int):
         self.port = port
         self.dns_server = dns_server
         self.dns_server_port = dns_server_port
