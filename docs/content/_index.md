@@ -1,5 +1,5 @@
 ---
-title: "Mooshak"
+title: "Home"
 type: docs
 bookToc: false
 ---

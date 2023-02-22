@@ -1,5 +1,5 @@
 ---
-title: "Mooshak | Server"
+title: "Server"
 type: docs
 ---
 
@@ -34,3 +34,6 @@ $ docker compose down
 ```
 
 ---
+
+
+
