@@ -33,7 +33,26 @@ To stop the mooshak server go to the same directory and then use:
 $ docker compose down
 ```
 
----
+## Run behind Nginx - Websocket
 
+You can configure your Nginx setup to forward websocket connections to websocket port listened by Mooshak WsTunnel (`3344`).
 
+Here is a sample path configuration to add to your Nginx setup:
 
+```
+location /mooshak {
+        proxy_pass http://127.0.0.1:3344;
+        proxy_http_version  1.1;
+        proxy_set_header    Upgrade $http_upgrade;
+        proxy_set_header    Connection "upgrade";
+        proxy_set_header    Host $http_host;
+        proxy_set_header    X-Real-IP $remote_addr;
+
+        proxy_connect_timeout       10m;
+        proxy_send_timeout          10m;
+        proxy_read_timeout          90m;
+        send_timeout                10m;
+}
+```
+
+Reload your Nginx service and you are good to go.
