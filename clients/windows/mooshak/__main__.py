@@ -2,7 +2,7 @@ import json
 import signal
 import sys
 import threading
-
+import rights
 import assets
 
 
@@ -27,7 +27,7 @@ class MooshakClient:
         print("Bye")
 
 
-MOOSHAK_CLIENT = MooshakClient()
+MOOSHAK_CLIENT = None
 
 
 def signal_handler(signal, frame):
@@ -37,6 +37,11 @@ def signal_handler(signal, frame):
 
 
 if __name__ == '__main__':
+    if not rights.is_user_admin():
+        print("Run this program as administrator")
+        exit(0)
+
+    MOOSHAK_CLIENT = MooshakClient()
     MOOSHAK_CLIENT.start()
 
     signal.signal(signal.SIGINT, signal_handler)
