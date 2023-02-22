@@ -35,11 +35,6 @@ assets = [
         "handler": lambda asset: download(asset["url"])
     },
     {"name": "wstunnel.exe", "url": "", "handler": None},
-    {
-        "name": "ssh-alive.bat",
-        "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/ssh-alive.bat",
-        "handler": lambda asset: download(asset["url"])
-    },
 ]
 
 
