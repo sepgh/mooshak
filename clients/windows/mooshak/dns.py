@@ -24,7 +24,7 @@ class DNS2Socks:
         si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         self.subprocess = subprocess.Popen(
             f"{self.get_process_path()} 127.0.0.1:{str(self.port)} {self.dns_server}:{self.dns_server_port} 127.0.0.1:53",
-            startupinfo=si
+            startupinfo=si,
         )
 
     def stop(self):
