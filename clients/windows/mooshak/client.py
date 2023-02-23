@@ -2,6 +2,7 @@ import json
 import sys
 import assets_loader
 import dns
+import plink
 
 
 def get_configuration() -> str:
@@ -22,9 +23,24 @@ class MooshakClient:
             self.configuration.get("dns_server", "8.8.8.8"),
             self.configuration.get("dns_port", 53),
         )
+        self.plink = plink.PLink(
+            self.configuration.get("socks_port", 6060),
+            self.get_server(),
+            self.get_server_port(),
+            self.configuration.get("username", "unknown"),
+            self.configuration.get("password", "unknown"),
+            lambda: self.stop()
+        )
+
+    def get_server(self):
+        return self.configuration.get("server") if not self.configuration.get("ws", False) else "127.0.0.1"
+
+    def get_server_port(self):
+        return self.configuration.get("port") if not self.configuration.get("ws", False) else 2255
 
     def start(self):
         self.dns2socks.start()
 
     def stop(self):
         self.dns2socks.stop()
+        self.plink.stop()
