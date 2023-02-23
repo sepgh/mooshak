@@ -39,7 +39,9 @@ class MooshakClient:
         return self.configuration.get("port") if not self.configuration.get("ws", False) else 2255
 
     def start(self):
+        print("Starting Mooshak Client ...")
         self.dns2socks.start()
+        self.plink.start()
 
     def stop(self):
         self.dns2socks.stop()
