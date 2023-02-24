@@ -33,6 +33,44 @@ To stop the mooshak server go to the same directory and then use:
 $ docker compose down
 ```
 
+## Managing users
+
+The `mooshak` container has scripts installed to help you add or remove users.
+
+First you need to find the running container:
+
+```shell
+$ docker ps
+```
+
+Example output:
+
+```
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+a8b04854bb35   mooshak10-wstunnel   "/bin/sh -c '/wstunn…"   4 seconds ago   Up 2 seconds   0.0.0.0:3344->80/tcp, :::3344->80/tcp   mooshak10-wstunnel-1
+f1ac70f5d9bb   mooshak10-mooshak    "/entrypoint.sh"         4 seconds ago   Up 2 seconds   0.0.0.0:2255->22/tcp, :::2255->22/tcp   mooshak10-mooshak-1  # <--
+```
+
+The container ID we are looking for is `f1ac70f5d9bb` in this example, with image `mooshak{tag}-mooshak`.
+
+To add a new user (or update their password) use:
+
+```shell
+$ docker exec <COONTAINER ID HERE> /adduser.sh <username> <password>
+
+# Eaxmple valid output:  chpasswd: password for 'test' changed
+```
+
+To remove a user (and terminate their open session) use:
+
+```shell
+$ docker exec <COONTAINER ID HERE> /deleteuser.sh <username>
+
+# Example valid output: deluser: can't find test in /etc/group
+```
+
+
+
 ## Run behind Nginx - Websocket
 
 You can configure your Nginx setup to forward websocket connections to websocket port listened by Mooshak WsTunnel (`3344`).
