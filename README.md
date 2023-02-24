@@ -24,11 +24,11 @@ Full documentation is available under https://sepgh.github.io/mooshak/
 
 - [X] SSH Server
 - [x] WS Tunnel
+- [X] Windows client
+- [X] Server setup documentation
+- [X] UDP Support (only on linux for now)
 - [ ] Restricted shell for ssh clients
-- [ ] Server setup documentation
-- [ ] UDP Support
-- [ ] Linux clients
-- [ ] Windows clients
-- [ ] MacOs clients
+- [ ] Linux client
+- [ ] MacOs client
 - [ ] Android clients
 - [ ] Limit python access on the server for `sshuttle`
