@@ -36,6 +36,11 @@ assets = [
         "handler": lambda asset: download(asset["url"])
     },
     {"name": "wstunnel.exe", "url": "", "handler": None},
+    {
+        "name": "interface.bat",
+        "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/interface.bat",
+        "handler": lambda asset: download(asset["url"])
+    },
 ]
 
 

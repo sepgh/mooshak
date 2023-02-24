@@ -21,4 +21,3 @@ Any personal use should be safe, and maybe you can share it with people you trus
 Unfortunately, due to `sshuttle` requirements, it's not easy to set `restricted bash` for users, and they will all have access to `python` command. Feel free to contribute to the project if you have suggesions on making Mooshak server more secure while keeping it simple.
 {{< /hint >}}
 
-
