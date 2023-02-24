@@ -5,6 +5,7 @@ enableGitInfo = true
 disableKinds = ['taxonomy', 'taxonomyTerm']
 relativeURLs = true
 canonifyURLs = true
+googleAnalytics = "G-4QMM7C7BZL"
 
 [module]
 [[module.imports]]
