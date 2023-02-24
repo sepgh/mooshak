@@ -4,7 +4,7 @@ import subprocess
 from termcolor import cprint
 
 from client import utils
-from client.win import setup_windows_proxy, setup_windows_dns, drop_windows_proxy, drop_windows_dns
+from client.win import setup_windows_proxy, drop_windows_proxy
 
 
 class PLink:
@@ -47,6 +47,8 @@ class PLink:
         si = subprocess.STARTUPINFO()
         si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
+        cprint(f" -ssh {self.server} -D {self.socks_port} -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password}")
+
         self.process_thread = utils.popen_and_call(
             self._on_exit,
             self.set_process,
@@ -62,7 +64,6 @@ class PLink:
             }
         )
         setup_windows_proxy(self.socks_port)
-        setup_windows_dns()
 
     def stop(self):
         self.stopped = True
@@ -71,5 +72,4 @@ class PLink:
             self.subprocess.wait()
             self.subprocess = None
         drop_windows_proxy()
-        drop_windows_dns()
         self.process_thread = None

@@ -3,6 +3,8 @@ import subprocess
 
 from termcolor import cprint
 
+from client.win import setup_windows_dns, drop_windows_dns
+
 
 class DNS2Socks:
 
@@ -29,10 +31,12 @@ class DNS2Socks:
             startupinfo=si,
         )
         cprint(f"DNS2Socks listening on 127.0.0.1:53. Primary DNS: {self.dns_server}:{self.dns_server_port}", "yellow")
+        setup_windows_dns()
 
     def stop(self):
         if self.subprocess is not None:
             self.subprocess.terminate()
             self.subprocess.wait()
             self.subprocess = None
+        drop_windows_dns()
 
