@@ -3,4 +3,6 @@ headless: true
 ---
 
 - [**Home**]({{< relref "/" >}})
-- [**Server**]({{< relref "/server" >}})
+- [**Server**]({{< relref "/docs/server" >}})
+- **Clients**
+    - [Windows]({{< relref "/docs/clients/windows" >}})
