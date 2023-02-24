@@ -43,13 +43,24 @@ Edit this file and replace the sample below with the values of your choice:
 
 The `socks_port` will be used on local machine to listen for incoming socks connections. `server` is ip address or hostname of the remote proxy server. `username` and `password` are SSH credentials. `port` is remote server port.
 
+To use Websocket tunneling try below example:
 
-{{< hint info >}}
-Currently websocket tunnel is not implemented.
-{{< /hint >}}
+```
+{
+  "socks_port": 8000,
+  "ws": true,
+  "ws_server": "wss://your_host",
+  "ws_path_prefix": "mooshak",
+  "ws_listen_port": 6000,
+  "username": "test",
+  "password": "test"
+}
+```
+
+The value of `ws_path_prefix` should be the same one as in `Nginx` path configuration on server side, however this field is not mandatory.
 
 
-## Run
+## Running client
 
 First run a new `Command Promot` **as administrator**.
 
