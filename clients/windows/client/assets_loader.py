@@ -35,7 +35,11 @@ assets = [
         "url": "https://the.earth.li/~sgtatham/putty/0.78/w64/plink.exe",
         "handler": lambda asset: download(asset["url"])
     },
-    {"name": "wstunnel.exe", "url": "", "handler": None},
+    {
+        "name": "wstunnel.exe",
+        "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/wstunnel.exe",
+        "handler": lambda asset: download(asset["url"])
+    },
     {
         "name": "interface.bat",
         "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/interface.bat",
