@@ -1,5 +1,7 @@
-import subprocess
 import os
+import subprocess
+
+from termcolor import cprint
 
 
 class DNS2Socks:
@@ -26,9 +28,11 @@ class DNS2Socks:
             f"{self.get_process_path()} 127.0.0.1:{str(self.port)} {self.dns_server}:{self.dns_server_port} 127.0.0.1:53",
             startupinfo=si,
         )
+        cprint(f"DNS2Socks listening on 127.0.0.1:53. Primary DNS: {self.dns_server}:{self.dns_server_port}", "yellow")
 
     def stop(self):
-        self.subprocess.terminate()
-        self.subprocess.wait()
-        self.subprocess = None
+        if self.subprocess is not None:
+            self.subprocess.terminate()
+            self.subprocess.wait()
+            self.subprocess = None
 

@@ -1,15 +1,18 @@
 import json
-import sys
-import assets_loader
-import dns
-import plink
+import os.path
+
+from termcolor import cprint
+
+import client.assets_loader
+import client.dns
+import client.plink
 
 
 def get_configuration() -> str:
-    if len(sys.argv) > 1:
-        return sys.argv[1]
-    else:
-        return "client.json"
+    return os.path.join(
+        os.path.relpath("."),
+        "client.json"
+    )
 
 
 class MooshakClient:
@@ -17,7 +20,6 @@ class MooshakClient:
     def __init__(self):
         with open(get_configuration(), "r") as configuration_file:
             self.configuration: dict = json.load(configuration_file)
-        assets_loader.validate_assets()
         self.dns2socks = dns.DNS2Socks(
             self.configuration.get("socks_port", 6060),
             self.configuration.get("dns_server", "8.8.8.8"),
@@ -39,7 +41,7 @@ class MooshakClient:
         return self.configuration.get("port") if not self.configuration.get("ws", False) else 2255
 
     def start(self):
-        print("Starting Mooshak Client ...")
+        cprint("Starting Mooshak Client ...", "yellow")
         self.dns2socks.start()
         self.plink.start()
 

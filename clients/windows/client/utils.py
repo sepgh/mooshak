@@ -1,5 +1,5 @@
-import threading
 import subprocess
+import threading
 
 
 def popen_and_call(on_exit, on_proc, popen_args, popen_kwargs):
