@@ -41,7 +41,6 @@ class MooshakClient:
             self.configuration.get("username", "unknown"),
             self.configuration.get("password", "unknown"),
             self.configuration.get("host_key", "unknown"),
-            lambda: self.stop()
         )
 
     def get_server(self):

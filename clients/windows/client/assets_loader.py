@@ -1,6 +1,7 @@
 import os
 
 import requests
+from termcolor import cprint
 
 
 def download(url: str):
@@ -13,7 +14,7 @@ def download(url: str):
 
     r = requests.get(url, stream=True)
     if r.ok:
-        print("saving to", os.path.abspath(file_path))
+        cprint(f"saving to {os.path.abspath(file_path)}", 'green')
         with open(file_path, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024 * 8):
                 if chunk:
@@ -21,7 +22,7 @@ def download(url: str):
                     f.flush()
                     os.fsync(f.fileno())
     else:  # HTTP status code 4XX/5XX
-        print("Download failed: status code {}\n{}".format(r.status_code, r.text))
+        cprint("Download failed: status code {}\n{}".format(r.status_code, r.text), 'red')
 
 
 assets = [
@@ -49,16 +50,19 @@ assets = [
 
 
 def validate_assets():
-
+    called_once = False
     for asset in assets:
         if not os.path.exists(
                 os.path.join(os.path.relpath("assets"), asset["name"])
         ):
-            print(f"Could not find {asset['name']} in assets directory.")
+            called_once = True
+            cprint(f"Could not find {asset['name']} in assets directory.", 'yellow')
             if 'handler' not in asset or asset.get('handler') is None:
-                print("I can't download it for you. This may break the application. Skipping.")
+                cprint("I can't download it for you. This may break the application. Skipping.")
                 continue
             else:
-                print(f"Downloading {asset['name']}")
+                cprint(f"Downloading {asset['name']}")
                 asset['handler'](asset)
 
+    if not called_once:
+        cprint("All assets are already loaded", "green")
