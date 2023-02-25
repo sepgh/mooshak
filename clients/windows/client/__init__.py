@@ -40,6 +40,7 @@ class MooshakClient:
             self.get_server_port(),
             self.configuration.get("username", "unknown"),
             self.configuration.get("password", "unknown"),
+            self.configuration.get("host_key", "unknown"),
             lambda: self.stop()
         )
 

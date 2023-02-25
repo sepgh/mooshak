@@ -22,5 +22,5 @@ def start():
 def stop():
     """Disconnect from Mooshak server"""
     ApplicationContext.get_instance().get_client().stop()
-    cprint("Connection stopped ...", "yellow")
+    cprint("Connection stopped ...", "red")
 

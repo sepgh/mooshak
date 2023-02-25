@@ -22,7 +22,6 @@ class WSTunnel:
         command: str = f"{self.get_process_path()} -L {self.ws_port}:mooshak:22 {self.server}"
         if self.path_prefix is not None:
             command += f" --upgradePathPrefix \"{self.path_prefix}\""
-        cprint(command)
         si = subprocess.STARTUPINFO()
         si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         self.subprocess = subprocess.Popen(

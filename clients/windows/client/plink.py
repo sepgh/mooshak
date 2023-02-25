@@ -10,12 +10,22 @@ from client.win import setup_windows_proxy, drop_windows_proxy
 class PLink:
     max_retries = 5
 
-    def __init__(self, socks_port: int, server: str, server_port: int, username: str, password: str, on_interrupt=None):
+    def __init__(
+            self,
+            socks_port: int,
+            server: str,
+            server_port: int,
+            username: str,
+            password: str,
+            host_key: str,
+            on_interrupt=None
+    ):
         self.socks_port = socks_port
         self.server = server
         self.server_port = server_port
         self.username = username
         self.password = password
+        self.host_key = host_key
         self.process_thread = None
         self.subprocess = None
         self.current_retries = 0
@@ -47,13 +57,12 @@ class PLink:
         si = subprocess.STARTUPINFO()
         si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
-        cprint(f" -ssh {self.server} -D {self.socks_port} -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password}")
-
         self.process_thread = utils.popen_and_call(
             self._on_exit,
             self.set_process,
             [
-                f" -ssh {self.server} -D {self.socks_port} -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password}"
+                f" -hostkey {self.host_key} -ssh {self.server} -D {self.socks_port}"
+                f" -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password}"
                 f" -N"
             ],
             {
