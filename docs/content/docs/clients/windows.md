@@ -37,7 +37,8 @@ Edit this file and replace the sample below with the values of your choice:
   "server": "14.15.16.17",
   "username": "test",
   "password": "test",
-  "port": 2255
+  "port": 2255,
+  "host_key": "SHA256:aSB62hUG4e0IuMffB/bxiaA+hxQMK5asdalaZk/EQ+A"
 }
 ```
 
@@ -53,7 +54,8 @@ To use Websocket tunneling try below example:
   "ws_path_prefix": "mooshak",
   "ws_listen_port": 6000,
   "username": "test",
-  "password": "test"
+  "password": "test",
+  "host_key": "SHA256:aSB62hUG4e0IuMffB/bxiaA+hxQMK5asdalaZk/EQ+A"
 }
 ```
 
