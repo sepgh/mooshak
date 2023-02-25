@@ -46,7 +46,7 @@ The `socks_port` will be used on local machine to listen for incoming socks conn
 
 To use Websocket tunneling try below example:
 
-```
+```json
 {
   "socks_port": 8000,
   "ws": true,
