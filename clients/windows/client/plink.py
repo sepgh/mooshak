@@ -3,7 +3,6 @@ import subprocess
 
 from termcolor import cprint
 
-from client import utils
 from client.win import setup_windows_proxy, drop_windows_proxy
 
 
