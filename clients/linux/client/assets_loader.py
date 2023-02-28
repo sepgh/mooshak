@@ -4,12 +4,13 @@ import requests
 from termcolor import cprint
 
 
-def download(url: str):
+def download(url: str, filename=None):
     assets_path = os.path.realpath("assets")
     if not os.path.exists(assets_path):
         os.makedirs(assets_path)  # create folder if it does not exist
 
-    filename = url.split('/')[-1].replace(" ", "_")  # be careful with file names
+    if filename is None:
+        filename = url.split('/')[-1].replace(" ", "_")  # be careful with file names
     file_path = os.path.join(assets_path, filename)
 
     r = requests.get(url, stream=True)
@@ -27,24 +28,9 @@ def download(url: str):
 
 assets = [
     {
-        "name": "DNS2SOCKS.exe",
-        "url": "https://altushost-swe.dl.sourceforge.net/project/dns2socks/DNS2SOCKS.exe",
-        "handler": lambda asset: download(asset["url"])
-    },
-    {
-        "name": "plink.exe",
-        "url": "https://the.earth.li/~sgtatham/putty/0.78/w64/plink.exe",
-        "handler": lambda asset: download(asset["url"])
-    },
-    {
-        "name": "wstunnel.exe",
-        "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/wstunnel.exe",
-        "handler": lambda asset: download(asset["url"])
-    },
-    {
-        "name": "interface.bat",
-        "url": "https://raw.githubusercontent.com/sepgh/mooshak/main/clients/windows/assets/interface.bat",
-        "handler": lambda asset: download(asset["url"])
+        "name": "wstunnel",
+        "url": "https://github.com/erebe/wstunnel/releases/download/v5.1/wstunnel-linux-x64",
+        "handler": lambda asset: download(asset["url"], asset["name"])
     },
 ]
 
