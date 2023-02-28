@@ -1,4 +1,3 @@
-import os
 import sys
 
 
@@ -35,9 +34,7 @@ class DirectParserDecorator:
         self.parser = parser
 
     def parse_args(self, args=None, namespace=None):
-        os.system(f"echo ags {args} >> /home/sepehr/home.log")
         output = self.parser.parse_args(args=args)
-        os.system(f"echo output {str(output).replace('(','').replace(')','')} >> /home/sepehr/home.log")
         return output
 
     def error(self, message):

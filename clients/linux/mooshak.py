@@ -1,6 +1,4 @@
-import os
 import signal
-import subprocess
 import sys
 import time
 from sys import exit
@@ -54,7 +52,6 @@ if __name__ == '__main__':
         validate_assets()
 
     else:
-        os.system(f"echo other command >> /home/sepehr/home.log")
         MooshakClient().sshuttle_args()
         cprint("Unknown command.")
         exit(0)
