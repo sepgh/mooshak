@@ -1,5 +1,5 @@
 ---
-title: "Windows Linux"
+title: "Linux Client"
 type: docs
 ---
 

@@ -7,15 +7,15 @@ type: docs
 
 This page describess how to run Mooshak Windows Client.
 
-This client is written in python for easier development in future. There is no pre-built executable ready at this moment. If you don't want to install python you can try [poormans vpn](https://github.com/sepgh/poormans-vpn) batch script.
+This client is written in python for easier development in future. If you don't want to install python you can try [pre-built version from releases](https://github.com/sepgh/mooshak/releases/tag/v1.0.0) or [poormans vpn](https://github.com/sepgh/poormans-vpn) batch script.
 
 
-## Requirements
+## Requirements (from source)
 
-To use Mooshak windows client, you will need to install python interpreter installed on your system(tested on 3.8, but 3.6+ is enough).
+To use Mooshak windows client from source, you will need to install python interpreter installed on your system(tested on 3.8, but 3.6+ is enough).
 
 
-## Installation
+## Installation (from source)
 
 First, clone the repository or download it as a zip and move it into directory of your choice. We assume this directory is called `mooshak`.
 
@@ -61,20 +61,28 @@ To use Websocket tunneling try below example:
 
 The value of `ws_path_prefix` should be the same one as in `Nginx` path configuration on server side, however this field is not mandatory.
 
+{{< hint info >}}
+If you are using pre-built version then keep this configuration file right next to the executable file.
+{{< /hint >}}
 
 ## Running client
 
+### From source
 First run a new `Command Promot` **as administrator**.
 
 Navigate to `mooshak\clients\windows` from CMD and activate the virtual environment using `venv\Scripts\activate`.
 
-Then execute: `python mooshak.py` to get CLI access for Mooshak client. You can type in `start` to start the client, `stop` to stop it, and `help` to see all available commands.
+Then execute: `python mooshak.py connect` to connect and disconnect with `Control + C`. If you close the window withoug `Control + C` it wont disconnect completely and you will need to do `mooshak.exe disconnect`.
+
+### From pre-built
+
+First run a new `Command Promot` **as administrator** and navigate to where your executable file is.
+
+Then execute `mooshak.exe connect` to connect and disconnect with `Control + C`. If you close the window withoug `Control + C` it wont disconnect completely and you will need to do `mooshak.exe disconnect`.
+
+If you are running pre-built you will need to either create a folder called `assets` next to your executable file and then download all of the assets from [this link](https://github.com/sepgh/mooshak/tree/main/clients/windows/assets) there, or you can run `mooshak.exe load_assets` so it will download external dependencies for you automatically.
 
 
 {{< hint info >}}
-You will need to keep the application open since there are no daemon services running as mooshak client on your system.
-{{< /hint >}}
-
-{{< hint warning >}}
-Closing the `start`ed application without first executing `stop` command will result in your system forwarding connections to unexisting DNS and Tunnel! **Make sure to first execute `stop` command before leaving** and if you forgot, run the application again and then execute `stop` command to fix.
+You will need to keep the application open since there are no daemon services running as mooshak client on your system. (for both pre-built and python)
 {{< /hint >}}
