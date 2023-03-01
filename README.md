@@ -27,8 +27,8 @@ Full documentation is available under https://sepgh.github.io/mooshak/
 - [X] Windows client
 - [X] Server setup documentation
 - [X] UDP Support (only on linux for now)
-- [ ] Restricted shell for ssh clients
 - [X] Linux client
+- [ ] Restricted shell for ssh clients
 - [ ] MacOs client
 - [ ] Android clients
 - [ ] Limit python access on the server for `sshuttle`
