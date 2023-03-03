@@ -6,8 +6,17 @@ services:
     build:
       context: ./mooshak
       network: host
+    image: mooshak
+    container_name: mooshak_sshd
+    tty: true
+    restart: always
+    volumes:
+      - mooshak_sshd:/etc/ssh
     ports:
       - 2255:22
+    networks:
+      - mooshak
+
   wstunnel:
     build:
       context: ./wstunnel
@@ -16,4 +25,14 @@ services:
       - 3344:80
     depends_on:
       - mooshak
+    networks:
+      - mooshak
 
+
+volumes:
+  mooshak_sshd:
+    external: true
+
+networks:
+  mooshak:
+    external: true
