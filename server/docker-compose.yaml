@@ -6,7 +6,6 @@ services:
     build:
       context: ./mooshak
       network: host
-    image: mooshak
     container_name: mooshak_sshd
     tty: true
     restart: always
