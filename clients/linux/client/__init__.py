@@ -50,3 +50,7 @@ class MooshakClient:
 
     def sshuttle_args(self):
         self.sshuttle.sshuttle_args()
+
+    def stop(self):
+        if self.wstunnel:
+            self.wstunnel.stop()

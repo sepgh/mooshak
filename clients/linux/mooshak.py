@@ -20,7 +20,7 @@ Project URL: https://github.com/sepgh/mooshak
 if __name__ == '__main__':
 
     if len(sys.argv) < 2:
-        print("Argument missing. Choose between: load_assets, connect, disconnect")
+        print("Argument missing. Choose between: load_assets, connect")
         exit(0)
 
     command = sys.argv[1]
@@ -39,14 +39,7 @@ if __name__ == '__main__':
 
         signal.signal(signal.SIGINT, signal_handler)
         client.start()
-        cprint('Connected', 'green')
-
-        cprint('Press Ctrl+C to disconnect')
-        while True:
-            try:
-                time.sleep(3)
-            except InterruptedError:
-                signal.raise_signal(signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     elif command == "load_assets":
         validate_assets()
