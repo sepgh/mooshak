@@ -80,8 +80,9 @@ First run a new `Command Promot` **as administrator** and navigate to where your
 
 Then execute `mooshak.exe connect` to connect and disconnect with `Control + C`. If you close the window withoug `Control + C` it wont disconnect completely and you will need to do `mooshak.exe disconnect`.
 
-If you are running pre-built you will need to either create a folder called `assets` next to your executable file and then download all of the assets from [this link](https://github.com/sepgh/mooshak/tree/main/clients/windows/assets) there, or you can run `mooshak.exe load_assets` so it will download external dependencies for you automatically.
+**Important:** If you are running pre-built you will need to either create a folder called `assets` next to your executable file and then download all of the assets from [this link](https://github.com/sepgh/mooshak/tree/main/clients/windows/assets) there, or you can run `mooshak.exe load_assets` so it will download external dependencies for you automatically.
 
+---
 
 {{< hint info >}}
 You will need to keep the application open since there are no daemon services running as mooshak client on your system. (for both pre-built and python)
