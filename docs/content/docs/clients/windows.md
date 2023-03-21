@@ -10,6 +10,11 @@ This page describess how to run Mooshak Windows Client.
 This client is written in python for easier development in future. If you don't want to install python you can try [pre-built version from releases](https://github.com/sepgh/mooshak/releases/tag/v1.0.0) or [poormans vpn](https://github.com/sepgh/poormans-vpn) batch script.
 
 
+## How it works:
+
+Mooshak Windows Client uses Putty Plink software to create a SSH Tunnel to the server. Additionally, Websocket Tunnel may be used on top of SSH Tunnel. Afterwards, the DNS2SOCKS will be used to redirect DNS traffic through SSH Tunnel, and windows proxy and DNS configuration will be changed. Mooshak itself hasn't implemented any of these tools and they are third party solutions that are gathered together in the client.
+
+
 ## Requirements (from source)
 
 To use Mooshak windows client from source, you will need to install python interpreter installed on your system(tested on 3.8, but 3.6+ is enough).
