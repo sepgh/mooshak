@@ -43,11 +43,14 @@ Edit this file and replace the sample below with the values of your choice:
   "username": "test",
   "password": "test",
   "port": 2255,
-  "host_key": "SHA256:aSB62hUG4e0IuMffB/bxiaA+hxQMK5asdalaZk/EQ+A"
+  "host_key": "SHA256:aSB62hUG4e0IuMffB/bxiaA+hxQMK5asdalaZk/EQ+A",
+  "verbose": false
 }
 ```
 
 The `socks_port` will be used on local machine to listen for incoming socks connections. `server` is ip address or hostname of the remote proxy server. `username` and `password` are SSH credentials. `port` is remote server port.
+
+To debug the connection you can set `verbose` to `true` to get log of Plink and WsTunnel.
 
 To use Websocket tunneling try below example:
 
