@@ -33,6 +33,7 @@ class MooshakClient:
                 self.configuration.get("ws_server"),
                 self.configuration.get("ws_listen_port"),
                 self.configuration.get("ws_path_prefix"),
+                self.configuration.get("verbose", False),
             )
         self.plink = plink.PLink(
             self.configuration.get("socks_port", 6060),
@@ -41,6 +42,7 @@ class MooshakClient:
             self.configuration.get("username", "unknown"),
             self.configuration.get("password", "unknown"),
             self.configuration.get("host_key", "unknown"),
+            self.configuration.get("verbose", False),
         )
 
     def get_server(self):

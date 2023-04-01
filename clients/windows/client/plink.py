@@ -1,8 +1,10 @@
 import os
 import subprocess
+import sys
 
 from termcolor import cprint
 
+from client.utils import VerbosePrinter
 from client.win import setup_windows_proxy, drop_windows_proxy
 
 
@@ -16,6 +18,7 @@ class PLink:
             username: str,
             password: str,
             host_key: str,
+            verbose: bool = False
     ):
         self.socks_port = socks_port
         self.server = server
@@ -26,6 +29,8 @@ class PLink:
         self.process_thread = None
         self.subprocess = None
         self.stopped = False
+        self.verbose = verbose
+        self.verbose_printer: VerbosePrinter = None
 
     def get_process_path(self):
         return os.path.join(
@@ -33,22 +38,25 @@ class PLink:
             "plink.exe"
         )
 
+    def _get_command(self):
+        command = f"{self.get_process_path()} -hostkey {self.host_key} -ssh {self.server} -D {self.socks_port}  -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password} "
+        if self.verbose:
+            command += "-v -sanitise-stderr -sanitise-stderr"
+        return command
+
     def start(self):
         if self.process_thread is not None:
             return
 
-        si = subprocess.STARTUPINFO()
-        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-
         self.subprocess = subprocess.Popen(
-            f"{self.get_process_path()} -hostkey {self.host_key} -ssh {self.server} -D {self.socks_port}"
-            f" -l {self.username} -P {self.server_port} -no-antispoof -pw {self.password}"
-            f" -N",
+            self._get_command(),
             stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            # startupinfo=si
+            stderr=subprocess.PIPE,
         )
-        cprint(f"Socks proxy available on {self.socks_port}", 'yellow')
+        if self.verbose:
+            self.verbose_printer = VerbosePrinter(self.subprocess, "plink", out=False)
+            self.verbose_printer.start()
+        cprint(f"Ran Plink to create SSH Tunnel (socks) on port {self.socks_port}", 'yellow')
         self.stopped = False
         setup_windows_proxy(self.socks_port)
 
@@ -62,3 +70,5 @@ class PLink:
         if not current_stop_status:
             drop_windows_proxy()
             self.process_thread = None
+        if self.verbose_printer is not None:
+            self.verbose_printer.stop()

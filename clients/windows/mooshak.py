@@ -16,7 +16,7 @@ BANNER = """
   /  |/  /__  ___  ___ / /  ___ _/ /__ \n
  / /|_/ / _ \/ _ \(_-</ _ \/ _ `/  '_/ \n
 /_/  /_/\___/\___/___/_//_/\_,_/_/\_\  \n
-Version 1.0 - Developed by SepGh
+Version 1.1.0 - Developed by SepGh
 Project URL: https://github.com/sepgh/mooshak
 """
 
