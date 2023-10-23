@@ -4,6 +4,13 @@ type: docs
 ---
 
 
+# Mooshak Windows Client
+
+This page describess how to run Mooshak Windows Client.
+
+This client is written in python for easier development in future. If you don't want to install python you can try [pre-built version from releases](https://github.com/sepgh/mooshak/releases/tag/v1.0.0) or [poormans vpn](https://github.com/sepgh/poormans-vpn) batch script.
+
+
 {{< hint info >}}
 # Update: tunnel all of your windows machine traffic using virtual machine
 
@@ -14,12 +21,6 @@ https://sepgh.medium.com/using-sshuttle-on-windows-3bca5496b7c1
 
 {{< /hint >}}
 
-
-# Mooshak Windows Client
-
-This page describess how to run Mooshak Windows Client.
-
-This client is written in python for easier development in future. If you don't want to install python you can try [pre-built version from releases](https://github.com/sepgh/mooshak/releases/tag/v1.0.0) or [poormans vpn](https://github.com/sepgh/poormans-vpn) batch script.
 
 
 ## How it works:
