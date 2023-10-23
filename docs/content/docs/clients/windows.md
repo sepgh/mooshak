@@ -3,6 +3,18 @@ title: "Windows Client"
 type: docs
 ---
 
+
+{{< hint info >}}
+# Update: tunnel all of your windows machine traffic using virtual machine
+
+The [Linux Client](https://sepgh.github.io/mooshak/docs/clients/linux/) of mooshak depends on **SSHuttle** directly.
+The article below explains how to use Oracle Virtual Box to run SSHuttle inside linux VM in a windows host and proxy all your traffic through it. This is better solution than the default mooshak client for windows.
+
+https://sepgh.medium.com/using-sshuttle-on-windows-3bca5496b7c1
+
+{{< /hint >}}
+
+
 # Mooshak Windows Client
 
 This page describess how to run Mooshak Windows Client.
